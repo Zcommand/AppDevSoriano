@@ -1,0 +1,96 @@
+body {
+    font-family: "Times New Roman", serif;
+    margin: 40px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.resume {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    line-height: 1.6;
+}
+
+
+header {
+    margin-bottom: 0;
+}
+
+/* HEADER LAYOUT */
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    border-bottom: 2px solid #000;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.profile-pic img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;    
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+/* TEXT ALIGNMENT */
+.header-info {
+    text-align: left;
+    max-width: 600px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+header p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* SECTIONS */
+.section {
+    margin-bottom: 25px;
+}
+
+.section h2 {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* LISTS */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+/* TEXT STYLES */
+.subheading {
+    font-weight: bold;
+}
+
+.details {
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+
+.year {
+    float: right;
+    font-style: italic;
+    color: #555;
+}
