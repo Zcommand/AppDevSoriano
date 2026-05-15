@@ -1,102 +1,159 @@
+:root {
+  --main-bg: #f4fff1;
+  --section-bg: #ffffff;
+  --green: #006b3c;
+  --dark-green: #004d2a;
+  --border: #cccccc;
+  --white: #ffffff;
+
+  --padding: 15px;
+  --radius: 10px;
+  --margin: 15px;
+
+  --main-font: Arial, sans-serif;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: var(--main-font);
 }
 
 body {
-    background-image: url("tsa2/uaap_feu-bg-logo-left.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    padding: 20px;
-    position: relative;
+  background-image: url("../resources/feu-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  padding: 20px;
 }
 
-/* overlay for readability */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.75);
-    z-index: -1;
+.container {
+  width: 100%;
 }
 
-h1 {
-    text-align: center;
-    color: #006b3c;
-    margin-bottom: 20px;
+.header {
+  background-color: var(--green);
+  color: white;
+
+  padding: 20px;
+  border-radius: var(--radius);
+
+  margin-bottom: var(--margin);
 }
 
-/* FORM */
-form {
-    background-color: white;
-    padding: 20px;
-    width: 70%;
-    max-width: 900px;
-    margin: auto;
-    border: 2px solid #006b3c;
-    border-radius: 8px;
+.banner h1 {
+  margin-bottom: 5px;
 }
 
-/* SECTIONS */
+.main-content {
+  width: 70%;
+  max-width: 900px;
+
+  margin: auto;
+}
+
+form,
+.output {
+  background-color: rgba(255, 255, 255, 0.95);
+
+  padding: 20px;
+  border-radius: var(--radius);
+
+  margin-bottom: 20px;
+}
+
 .section {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
+  border: 1px solid var(--border);
+
+  padding: var(--padding);
+  margin-bottom: var(--margin);
+
+  border-radius: var(--radius);
 }
 
 .section h3 {
-    background-color: #006b3c;
-    color: white;
-    padding: 8px;
-    margin-bottom: 10px;
+  background-color: var(--green);
+  color: white;
+
+  padding: 10px;
+  border-radius: 5px;
+
+  margin-bottom: 15px;
 }
 
-/* INPUTS */
-input, select, textarea {
-    margin: 5px 0;
-    padding: 6px;
-    width: 100%;
+label {
+  display: block;
+  margin-top: 10px;
 }
 
-/* CHECKBOX + RADIO FIX */
-.section label {
-    display: inline-flex;
-    align-items: center;
-    margin: 5px 10px 5px 0;
-    gap: 5px;
+input {
+  width: 100%;
+
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.checkbox-group,
+.radio-group {
+  margin-top: 10px;
+}
+
+.checkbox-group label,
+.radio-group label {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+  margin-right: 15px;
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-    width: auto;
+  width: auto;
 }
 
-/* BUTTON */
 button {
-    background-color: #006b3c;
-    color: white;
-    padding: 10px;
-    border: none;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 4px;
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: var(--green);
+  color: white;
+
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #004d2a;
+  background-color: var(--dark-green);
 }
 
-/* OUTPUT */
-.output {
-    width: 70%;
-    max-width: 900px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border: 2px solid #006b3c;
-    border-radius: 8px;
+.required {
+  color: red;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.footer {
+  width: 70%;
+  max-width: 900px;
+
+  margin: 20px auto;
+
+  text-align: center;
+
+  background-color: var(--green);
+  color: white;
+
+  padding: 15px;
+  border-radius: var(--radius);
 }

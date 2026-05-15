@@ -1,19 +1,15 @@
 <?php
+$pageTitle = "Student Registration Form";
 
-$submitted = false;
 $errors = [];
+$programs = [];
 
-// DEFAULT VALUES
-$studentNumber = $entryDate = $entryType = $grade = $oen = $homeroom = "";
 $fname = $mname = $lname = $gender = $dob = "";
 $previousSchool = $previousGrade = $reasonTransfer = "";
 $medical = "";
 $birthCountry = $citizenship = "";
-$programs = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $submitted = true;
 
     // SCHOOL USE
     $studentNumber = $_POST["studentNumber"] ?? "";
@@ -23,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $oen = $_POST["oen"] ?? "";
     $homeroom = $_POST["classHomeroom"] ?? "";
 
-    // STUDENT INFO
+    // STUDENT INFORMATION
     $fname = ucwords(strtolower($_POST["firstName"] ?? ""));
     $mname = ucwords(strtolower($_POST["middleName"] ?? ""));
     $lname = ucwords(strtolower($_POST["lastName"] ?? ""));
@@ -31,140 +27,188 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dob = $_POST["dob"] ?? "";
 
     // PREVIOUS SCHOOL
-    $previousSchool = ucwords(strtolower($_POST["previousSchool"] ?? ""));
-    $previousGrade = $_POST["previousGrade"] ?? "";
-    $reasonTransfer = ucfirst(strtolower($_POST["reasonTransfer"] ?? ""));
+    $previousSchool = trim($_POST["previousSchool"] ?? "") ?: "N/A";
+    $previousGrade  = trim($_POST["previousGrade"] ?? "") ?: "N/A";
+    $reasonTransfer = trim($_POST["reasonTransfer"] ?? "") ?: "N/A";
 
     // HEALTH
-    $medical = ucfirst(strtolower($_POST["medical"] ?? ""));
+    $medical = trim($_POST["medical"] ?? "") ?: "N/A";
 
     // CITIZENSHIP
-    $birthCountry = ucwords(strtolower($_POST["birthCountry"] ?? ""));
-    $citizenship = ucwords(strtolower($_POST["citizenship"] ?? ""));
+    $birthCountry = trim($_POST["birthCountry"] ?? "") ?: "N/A";
+    $citizenship  = trim($_POST["citizenship"] ?? "") ?: "N/A";
 
     // PROGRAMS
     $programs = $_POST["programs"] ?? [];
 
     // VALIDATION
-    if ($fname == "" || $lname == "" || $gender == "" || $dob == "") {
-        $errors[] = "Please fill out required student information.";
+    if ($fname === "" || $lname === "" || $gender === "" || $dob === "") {
+        $errors[] = "Please fill out all required fields.";
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Student Registration Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $pageTitle ?></title>
+
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        .req {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
-
 </head>
 
 <body>
 
-<h1>Student Registration Form</h1>
+    <div class="container">
 
-<form method="POST">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="banner">
+                <h1>FEU Student Registration</h1>
+            </div>
+        </header>
 
-<!-- SCHOOL USE -->
-<div class="section">
-    <h3>For School Use</h3>
+        <main class="main-content">
 
-    Student Number: <input type="text" name="studentNumber"><br>
-    Entry Date: <input type="date" name="entryDate"><br>
-    Entry Type: <input type="text" name="entryType"><br>
-    Grade: <input type="text" name="grade"><br>
-    OEN: <input type="text" name="oen"><br>
-    Class/Homeroom: <input type="text" name="classHomeroom"><br>
+            <form method="POST">
 
-    <br>Programs:<br>
-    <label><input type="checkbox" name="programs[]" value="ESL"> ESL</label>
-    <label><input type="checkbox" name="programs[]" value="SPED"> SPED</label>
-    <label><input type="checkbox" name="programs[]" value="IPRC"> IPRC</label>
-    <label><input type="checkbox" name="programs[]" value="ISA"> ISA</label>
-</div>
+                <!-- SCHOOL USE -->
+                <section class="section">
+                    <h3>For School Use</h3>
 
-<!-- STUDENT INFO -->
-<div class="section">
-    <h3>Student Information</h3>
+                    <label>Student Number</label>
+                    <input type="text" name="studentNumber">
 
-    Last Name <span class="req">*</span>: <input type="text" name="lastName" required><br>
-    First Name <span class="req">*</span>: <input type="text" name="firstName" required><br>
-    Middle Name: <input type="text" name="middleName"><br>
+                    <label>Entry Date</label>
+                    <input type="date" name="entryDate">
 
-    Gender <span class="req">*</span>:
-    <input type="radio" name="gender" value="Male" required> Male
-    <input type="radio" name="gender" value="Female" required> Female<br>
+                    <label>Entry Type</label>
+                    <input type="text" name="entryType">
 
-    Date of Birth <span class="req">*</span>: <input type="date" name="dob" required><br>
-</div>
+                    <label>Grade</label>
+                    <input type="text" name="grade">
 
-<!-- PREVIOUS SCHOOL -->
-<div class="section">
-    <h3>Previous School Information</h3>
+                    <label>OEN</label>
+                    <input type="text" name="oen">
 
-    Previous School: <input type="text" name="previousSchool"><br>
-    Previous Grade: <input type="text" name="previousGrade"><br>
-    Reason for Transfer: <input type="text" name="reasonTransfer"><br>
-</div>
+                    <label>Class / Homeroom</label>
+                    <input type="text" name="classHomeroom">
 
-<!-- HEALTH -->
-<div class="section">
-    <h3>Health Information</h3>
+                    <div class="checkbox-group">
+                        <p>Programs</p>
 
-    Medical Conditions: <input type="text" name="medical"><br>
-</div>
+                        <label><input type="checkbox" name="programs[]" value="ESL"> ESL</label>
+                        <label><input type="checkbox" name="programs[]" value="SPED"> SPED</label>
+                        <label><input type="checkbox" name="programs[]" value="IPRC"> IPRC</label>
+                        <label><input type="checkbox" name="programs[]" value="ISA"> ISA</label>
+                    </div>
+                </section>
 
-<!-- CITIZENSHIP -->
-<div class="section">
-    <h3>Citizenship Information</h3>
+                <!-- STUDENT INFO -->
+                <section class="section">
+                    <h3>Student Information</h3>
 
-    Birth Country: <input type="text" name="birthCountry"><br>
-    Citizenship: <input type="text" name="citizenship"><br>
-</div>
+                    <label>Last Name <span class="required">*</span></label>
+                    <input type="text" name="lastName" required>
 
-<button type="submit">Submit</button>
+                    <label>First Name <span class="required">*</span></label>
+                    <input type="text" name="firstName" required>
 
-</form>
+                    <label>Middle Name</label>
+                    <input type="text" name="middleName">
 
-<?php if (!empty($errors)) {
-    foreach ($errors as $error) {
-        echo "<p style='color:red; text-align:center;'>$error</p>";
-    }
-} ?>
+                    <div class="radio-group">
+                        <p>Gender <span class="required">*</span></p>
 
-<?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($errors)) { ?>
+                        <label><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label><input type="radio" name="gender" value="Female"> Female</label>
+                    </div>
 
-<div class="output">
+                    <label>Date of Birth <span class="required">*</span></label>
+                    <input type="date" name="dob" required>
+                </section>
 
-    <h2>Submitted Information</h2>
+                <!-- PREVIOUS SCHOOL -->
+                <section class="section">
+                    <h3>Previous School Information</h3>
 
-    <p><b>Name:</b> <?php echo "$fname $mname $lname"; ?></p>
-    <p><b>Gender:</b> <?php echo $gender; ?></p>
-    <p><b>Date of Birth:</b> <?php echo $dob; ?></p>
+                    <label>Previous School</label>
+                    <input type="text" name="previousSchool">
 
-    <p><b>Previous School:</b> <?php echo $previousSchool; ?></p>
-    <p><b>Previous Grade:</b> <?php echo $previousGrade; ?></p>
-    <p><b>Reason:</b> <?php echo $reasonTransfer; ?></p>
+                    <label>Previous Grade</label>
+                    <input type="text" name="previousGrade">
 
-    <p><b>Medical:</b> <?php echo $medical; ?></p>
+                    <label>Reason for Transfer</label>
+                    <input type="text" name="reasonTransfer">
+                </section>
 
-    <p><b>Citizenship:</b> <?php echo $citizenship . " (" . $birthCountry . ")"; ?></p>
+                <!-- HEALTH -->
+                <section class="section">
+                    <h3>Health Information</h3>
 
-    <p><b>Programs:</b>
-        <?php echo !empty($programs) ? implode(", ", $programs) : "None"; ?>
-    </p>
+                    <label>Medical Conditions</label>
+                    <input type="text" name="medical">
+                </section>
 
-</div>
+                <!-- CITIZENSHIP -->
+                <section class="section">
+                    <h3>Citizenship Information</h3>
 
-<?php } ?>
+                    <label>Birth Country</label>
+                    <input type="text" name="birthCountry">
+
+                    <label>Citizenship</label>
+                    <input type="text" name="citizenship">
+                </section>
+
+                <button type="submit">Submit</button>
+
+            </form>
+
+            <!-- ERRORS -->
+            <?php if (!empty($errors)): ?>
+                <?php foreach ($errors as $error): ?>
+                    <p class="error"><?= $error ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <!-- OUTPUT -->
+            <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($errors)): ?>
+
+                <div class="output">
+
+                    <h2>Submitted Information</h2>
+
+                    <p><b>Student Number:</b> <?= $studentNumber ?></p>
+                    <p><b>Name:</b> <?= "$fname $mname $lname" ?></p>
+                    <p><b>Gender:</b> <?= $gender ?></p>
+                    <p><b>Date of Birth:</b> <?= date("F d, Y", strtotime($dob)) ?></p>
+
+                    <p><b>Previous School:</b> <?= $previousSchool ?></p>
+                    <p><b>Previous Grade:</b> <?= $previousGrade ?></p>
+                    <p><b>Reason:</b> <?= $reasonTransfer ?></p>
+
+                    <p><b>Medical Conditions:</b> <?= $medical ?></p>
+
+                    <p><b>Citizenship:</b> <?= "$citizenship ($birthCountry)" ?></p>
+
+                    <p><b>Programs:</b>
+                        <?= !empty($programs) ? implode(", ", $programs) : "None" ?>
+                    </p>
+
+                </div>
+
+            <?php endif; ?>
+
+        </main>
+
+
+        <?php include 'include/footer.php'; ?>
+
+    </div>
 
 </body>
+
 </html>
