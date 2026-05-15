@@ -1,0 +1,113 @@
+:root{
+    /* pagdedeclare ng global variable for css */
+    /* COLOR VALUES */
+    --main-bg-color: #f2ffef;
+    --banner-bg-color: #2e7d32;
+    --main-content-bg-color: #e9dc26;
+    --footer-bg-color: #0c140c;
+    --nav-button-bg-color: #1fb980;
+
+    /* GAPS, SIZING, AND BORDERS*/
+    --gap-size: 15px;
+    --container-padding: 15px;
+    --margin: 8px;
+    --padding: 10px;
+    --border-radius: 15px;
+
+    /* FONT */
+    --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --title-font: 'Times New Roman', serif;
+    --banner-title: 3.5rem;
+    --content-size: 1.2rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-family: var(--main-font);
+}
+
+body{
+    padding: var(--gap-size);
+    background-color: var(--main-bg-color);
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 3fr auto;
+
+    margin: var(--gap-size);
+    padding: var(--container-padding);
+
+    background-color: var(--banner-bg-color);
+
+    border-radius: var(--border-radius);
+    color: white;
+    
+}
+
+.header h1{
+    font-family: var(--title-font);
+    font-size : var(--banner-title);
+}
+
+
+.navigation ul{
+    height: 100%;
+    align-items: center;
+    display: flex;
+    list-style-type: none;
+}
+
+.navigation ul a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+
+    margin: var(--margin);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    background-color: var(--nav-button-bg-color);
+
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.navigation ul a:hover {
+    transform: scale(1.2);
+}
+
+.main-content {
+    margin: var(--gap-size);
+    padding: var(--container-padding);
+    border-radius: var(--border-radius);
+
+    background-color: var(--main-content-bg-color);
+    
+}
+
+.main-content h2,
+.main-content p{
+    margin-bottom: var(--margin);
+}
+
+.main-content ul{
+    margin-left: var(--gap-size);
+}
+.footer {
+    margin: var(--gap-size);
+    padding: var(--container-padding);
+    border-radius: var(--border-radius);
+
+    background-color: var(--footer-bg-color);
+    color: white;
+    text-align: center;
+}
