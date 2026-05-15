@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    background-image: url("tsa2/uaap_feu-bg-logo-left.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px;
+    position: relative;
+}
+
+/* overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    color: #006b3c;
+    margin-bottom: 20px;
+}
+
+/* FORM */
+form {
+    background-color: white;
+    padding: 20px;
+    width: 70%;
+    max-width: 900px;
+    margin: auto;
+    border: 2px solid #006b3c;
+    border-radius: 8px;
+}
+
+/* SECTIONS */
+.section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.section h3 {
+    background-color: #006b3c;
+    color: white;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+/* INPUTS */
+input, select, textarea {
+    margin: 5px 0;
+    padding: 6px;
+    width: 100%;
+}
+
+/* CHECKBOX + RADIO FIX */
+.section label {
+    display: inline-flex;
+    align-items: center;
+    margin: 5px 10px 5px 0;
+    gap: 5px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+}
+
+/* BUTTON */
+button {
+    background-color: #006b3c;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #004d2a;
+}
+
+/* OUTPUT */
+.output {
+    width: 70%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border: 2px solid #006b3c;
+    border-radius: 8px;
+}
