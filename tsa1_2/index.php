@@ -10,7 +10,6 @@
             --green: #006b3c;
             --light: #f5f5f5;
             --yellow: #ffeb3b;
-            --red: #e53935;
         }
 
         body {
@@ -47,8 +46,8 @@
             background-color: var(--yellow);
         }
 
-        .red {
-            background-color: var(--red);
+        .green {
+            background-color: var(--green);
         }
     </style>
 </head>
@@ -71,7 +70,7 @@
                 if (($row + $col) % 2 === 0) {
                     $colorClass = "yellow";
                 } else {
-                    $colorClass = "red";
+                    $colorClass = "green";
                 }
                 echo "<td class='{$colorClass}'>$product</td>";
             }
