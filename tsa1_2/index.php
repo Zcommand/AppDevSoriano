@@ -24,7 +24,7 @@
             color: var(--green);
         }
 
-        /* TABLE */
+        
         table {
             border-collapse: collapse;
             margin: auto;
@@ -41,7 +41,7 @@
             height: 50px;
         }
 
-        /* COLORS */
+        
         .yellow {
             background-color: var(--yellow);
         }
