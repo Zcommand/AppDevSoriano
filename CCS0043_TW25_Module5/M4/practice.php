@@ -33,12 +33,20 @@ usort($books, fn($a, $b) => strcmp($a["title"], $b["title"]));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $pageTitle ?></title>
+
+    <style>
+
+        .container{
+            color:red
+        }
+
+    </style>
 </head>
 
 <body>
-    <div class = container>
+    <div class = "container">
 
-        <div class = header>
+        <div class = "header">
             My books
         </div>
 
