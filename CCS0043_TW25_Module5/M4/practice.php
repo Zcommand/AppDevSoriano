@@ -35,18 +35,16 @@ usort($books, fn($a, $b) => strcmp($a["title"], $b["title"]));
     <title><?= $pageTitle ?></title>
 
     <style>
-
-        .container{
-            color:red
+        .container {
+            color: red
         }
-
     </style>
 </head>
 
 <body>
-    <div class = "container">
+    <div class="container">
 
-        <div class = "header">
+        <div class="header">
             My books
         </div>
 
@@ -57,16 +55,16 @@ usort($books, fn($a, $b) => strcmp($a["title"], $b["title"]));
                 <th>year</th>
                 <th>image</th>
             </tr>
-        
-        
-        <?php foreach ($books as $book): ?>
-            <tr>
-                <td><?= $book["title"]?></td>
-                <td><?= $book["author"]?></td>
-                <td><?= $book["year"]?></td>
-                <td><?= $book["image"]?></td>
-            </tr>
-        <?php endforeach; ?>
+
+
+            <?php foreach ($books as $book): ?>
+                <tr>
+                    <td><?= $book["title"] ?></td>
+                    <td><?= $book["author"] ?></td>
+                    <td><?= $book["year"] ?></td>
+                    <td><?= $book["image"] ?></td>
+                </tr>
+            <?php endforeach; ?>
         </table>
     </div>
 </body>

@@ -1,89 +1,62 @@
 <?php
-
-if (isset($_POST['submit'])) {
-
-    setcookie("color1", $_POST['color1'], time() + 10);
-    setcookie("color2", $_POST['color2'], time() + 20);
-    setcookie("color3", $_POST['color3'], time() + 30);
-    setcookie("color4", $_POST['color4'], time() + 40);
-    setcookie("color5", $_POST['color5'], time() + 50);
-
-    header("Location: ResultColors.php");
-    exit();
-}
-
 $colors = $_COOKIE;
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Result Colors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Colors</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-    .form-header {
-        background: #0d6efd;
-        color: white;
-        padding: 10px;
-        text-align: center;
-        font-weight: 600;
-        border-radius: 6px 6px 0 0;
-    }
-</style>
+    <style>
+        .header {
+            background: #0d6efd;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+        }
 
+        .box {
+            background: #f8f9fa;
+            border-left: 4px solid #0d6efd;
+            padding: 12px;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 
 <body class="bg-light">
 
-<div class="container py-4">
+    <div class="container py-4">
 
-    <div class="row justify-content-center">
+        <div class="card shadow mx-auto" style="max-width: 500px;">
 
-        <div class="col-md-5">
+            <div class="header">
+                My Favorite Colors
+            </div>
 
-            <div class="card shadow">
+            <div class="card-body">
 
-                <div class="form-header">
-                    My Favorite Colors
-                </div>
+                <div class="box">
 
-                <div class="card-body">
+                    <b>COOKIE OUTPUT (Countdown)</b><br><br>
 
-                    <input class="form-control mb-2"
-                        value="<?= $colors['color1'] ?? '' ?>"
-                        style="color: <?= $colors['color1'] ?? '' ?>"
-                        disabled>
-
-                    <input class="form-control mb-2"
-                        value="<?= $colors['color2'] ?? '' ?>"
-                        style="color: <?= $colors['color2'] ?? '' ?>"
-                        disabled>
-
-                    <input class="form-control mb-2"
-                        value="<?= $colors['color3'] ?? '' ?>"
-                        style="color: <?= $colors['color3'] ?? '' ?>"
-                        disabled>
-
-                    <input class="form-control mb-2"
-                        value="<?= $colors['color4'] ?? '' ?>"
-                        style="color: <?= $colors['color4'] ?? '' ?>"
-                        disabled>
-
-                    <input class="form-control mb-3"
-                        value="<?= $colors['color5'] ?? '' ?>"
-                        style="color: <?= $colors['color5'] ?? '' ?>"
-                        disabled>
-
-                    <a href="FavoriteColor.php" class="btn btn-primary w-100">
-                        Back
-                    </a>
+                    Color 1 (10s): <?= $colors['color1'] ?? 'Expired' ?><br>
+                    Color 2 (20s): <?= $colors['color2'] ?? 'Expired' ?><br>
+                    Color 3 (30s): <?= $colors['color3'] ?? 'Expired' ?><br>
+                    Color 4 (40s): <?= $colors['color4'] ?? 'Expired' ?><br>
+                    Color 5 (50s): <?= $colors['color5'] ?? 'Expired' ?>
 
                 </div>
+
+                <a href="FavoriteColor.php" class="btn btn-primary w-100 mt-3">
+                    Back
+                </a>
 
             </div>
 
@@ -91,7 +64,6 @@ $colors = $_COOKIE;
 
     </div>
 
-</div>
-
 </body>
+
 </html>
