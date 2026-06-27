@@ -75,13 +75,11 @@ h3{
     background:#5c636a;
 }
 
-/* Alerts */
 
 .alert{
     border-radius:10px;
 }
 
-/* Table */
 
 .table{
     margin-bottom:0;
@@ -100,7 +98,6 @@ h3{
     vertical-align:middle;
 }
 
-/* Card Body */
 
 .card-body{
     padding:30px;
