@@ -58,9 +58,9 @@ $title = "Dog Information";
 
                         <td><?= $row['color']; ?></td>
 
-                        <td><?= $row["height"]; ?> ft</td>
+                        <td><?= $row["height"]; ?></td>
 
-                        <td><?= $row["weight"]; ?> kg</td>
+                        <td><?= $row["weight"]; ?></td>
 
                         <td><?= $row['date_created']; ?></td>
 
