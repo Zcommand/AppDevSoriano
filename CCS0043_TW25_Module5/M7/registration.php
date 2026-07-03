@@ -16,7 +16,7 @@
             ?>
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <form action="registration.php" method="post" novalidate> //add enctype
+                    <form action="registration.php" method="post" enctype="multipart/form-data" novalidate>
                         <div class="mb-3">
                             <label for="student_id" class="form-label">Student ID Number</label>
                             <input type="text" name="student_id" id="student_id" class="form-control">
@@ -51,6 +51,12 @@
                                 <option value="3">3rd Year</option>
                                 <option value="4">4th Year</option>
                             </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="photo" class="form-label">Student Photo</label>
+                            <input type="file" name="photo" id="photo" class="form-control" accept="image/*">
+                            <div class="form-text">Accepted files types: JPG, JPEG, PNG, GIF</div>
                         </div>
 
                         <div class="d-flex justify-content-between">
